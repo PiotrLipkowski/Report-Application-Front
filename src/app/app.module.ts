@@ -13,7 +13,11 @@ import { AdminComponent } from './admin/admin.component';
 import { PmComponent } from './pm/pm.component';
  
 import { httpInterceptorProviders } from './auth/auth-interceptor';
- 
+import { FormUploadComponent } from './upload/form-upload/form-upload.component';
+import { ListUploadComponent } from './upload/list-upload/list-upload.component';
+import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +26,16 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     RegisterComponent,
     HomeComponent,
     AdminComponent,
-    PmComponent
+    PmComponent,
+    FormUploadComponent,
+    ListUploadComponent,
+    DetailsUploadComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

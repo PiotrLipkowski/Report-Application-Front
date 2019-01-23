@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { PmComponent } from './pm/pm.component';
 import { AdminComponent } from './admin/admin.component';
+
+ 
  
 const routes: Routes = [
     {
@@ -38,6 +40,8 @@ const routes: Routes = [
         redirectTo: 'home',
         pathMatch: 'full'
     }
+
+
 ];
  
 @NgModule({

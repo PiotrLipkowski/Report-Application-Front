@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
- 
 import { TokenStorageService } from '../auth/token-storage.service';
  
 @Component({
@@ -9,6 +8,8 @@ import { TokenStorageService } from '../auth/token-storage.service';
 })
 export class HomeComponent implements OnInit {
   info: any;
+  board:string;
+  errorMessage: string;
  
   constructor(private token: TokenStorageService) { }
  

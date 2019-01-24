@@ -21,9 +21,9 @@ export class DetailsUploadComponent implements OnInit {
 	@Input() fileUpload: string;
 
   constructor(private http: HttpClient, private uploadFileService: UploadFileService, private sanitizer: DomSanitizer) { }
-  
+
   ngOnInit() {
-	
+
   }
 
 
@@ -32,8 +32,8 @@ export class DetailsUploadComponent implements OnInit {
   }
 
 
-       
- 
+
+
 
 
 }

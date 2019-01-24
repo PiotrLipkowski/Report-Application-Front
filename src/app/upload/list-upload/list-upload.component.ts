@@ -25,7 +25,7 @@ export class ListUploadComponent implements OnInit {
 
     if (enable) {
       this.fileUploads = this.uploadService.getFiles();
-      
+
     }
   }
 }

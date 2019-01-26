@@ -49,6 +49,12 @@ export class UploadFileService{
     return this.http.get('http://localhost:8080/api/file/all');
   }
 
+
+  //wyszukiwanie wszystkich plikow po id, DO ZMIANY NA WYSZUKIWANIE PO USER_ID
+  getFilesById(id) : Observable<any>{
+  	return this.http.get('http://localhost:8080/api/file/'+id+'/all');
+  }
+
   //tworzy plik blob z dorzuceniem tokena w naglowku
   downloadFile(route: string, filename: string = null): void{
 

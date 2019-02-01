@@ -1,25 +1,52 @@
 <div *ngIf="isSignedUp; else signupForm">
   Rejestracja przebiegła pomyślnie. Zaloguj się!
 </div>
- 
+
 <ng-template #signupForm>
   <div class="row col-sm-6" style="max-width:350px;">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
-        <label for="name">Twoje imię i nazwisko</label>
+        <label for="name">Twoje imię</label>
         <input type="text" class="form-control" name="name" [(ngModel)]="form.name" #name="ngModel" required />
         <div *ngIf="f.submitted && name.invalid">
           <div *ngIf="name.errors.required">Name is required</div>
         </div>
       </div>
+
+
+      <div class="form-group">
+        <label for="surname">Twoje nazwisko</label>
+        <input type="text" class="form-control" name="surname" [(ngModel)]="form.surname" #surname="ngModel" required />
+        <div *ngIf="f.submitted && surname.invalid">
+          <div *ngIf="surname.errors.required">Surname is required</div>
+        </div>
+      </div>
+
       <div class="form-group">
         <label for="username">Nazwa użytkownika</label>
-        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
-          required />
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel" required />
         <div *ngIf="f.submitted && username.invalid">
           <div *ngIf="username.errors.required">Nazwa użytkownika jest wymagana</div>
         </div>
       </div>
+
+      <div class="form-group">
+        <label for="indeks">Twój nmer indeksu</label>
+        <input type="number" class="form-control" name="indeks" [(ngModel)]="form.indeks" #indeks="ngModel" required />
+        <div *ngIf="f.submitted && indeks.invalid">
+          <div *ngIf="indeks.errors.required">Indeks is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="grupa">Twój numer grupy</label>
+        <input type="number" class="form-control" name="grupa" [(ngModel)]="form.grupa" #grupa="ngModel" required />
+        <div *ngIf="f.submitted && grupa.invalid">
+          <div *ngIf="grupa.errors.required">Grupa is required</div>
+        </div>
+      </div>
+
+
       <div class="form-group">
         <label for="email">Email</label>
         <input type="text" class="form-control" name="email" [(ngModel)]="form.email" #email="ngModel" required email />
@@ -30,8 +57,7 @@
       </div>
       <div class="form-group">
         <label for="password">Hasło</label>
-        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
-          required minlength="6" />
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel" required minlength="6" />
         <div *ngIf="f.submitted && password.invalid">
           <div *ngIf="password.errors.required">Hasło jest wymagany</div>
           <div *ngIf="password.errors.minlength">Hasło musi mieć conajmniej 6 znaków</div>

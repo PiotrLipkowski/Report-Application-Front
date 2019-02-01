@@ -11,10 +11,7 @@ import { UploadFileService } from '../upload-file.service';
 export class ListUploadComponent implements OnInit {
 
   showFile = false;
-  showFileById = false;
-  
   fileUploads: Observable<string[]>;
-  fileUploadsById: Observable<string[]>;
 
   constructor(private uploadService: UploadFileService) { }
 
@@ -28,18 +25,7 @@ export class ListUploadComponent implements OnInit {
 
     if (enable) {
       this.fileUploads = this.uploadService.getFiles();
-
-    }
-  }
-
-
-
-
-  showFilesById(enable: boolean) {
-    this.showFileById = enable;
-
-    if (enable) {
-      this.fileUploadsById = this.uploadService.getFilesById(1);
+      
     }
   }
 }

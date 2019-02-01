@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
- 
+
 import { AuthService } from '../auth/auth.service';
 import { SignUpInfo } from '../auth/signup-info';
- 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -14,20 +14,23 @@ export class RegisterComponent implements OnInit {
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = '';
- 
+
   constructor(private authService: AuthService) { }
- 
+
   ngOnInit() { }
- 
+
   onSubmit() {
     console.log(this.form);
- 
+
     this.signupInfo = new SignUpInfo(
       this.form.name,
+      this.form.surname,
       this.form.username,
+      this.form.indeks,
+      this.form.grupa,
       this.form.email,
       this.form.password);
- 
+
     this.authService.signUp(this.signupInfo).subscribe(
       data => {
         console.log(data);

@@ -10,7 +10,7 @@ import { UserService } from '../services/user.service';
   providedIn: 'root'
 })
 export class UploadFileService{
-
+  
   board: string;
   errorMessage: string;
   info: any;
@@ -22,14 +22,14 @@ export class UploadFileService{
   //POST na serwer wybranego pliku
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
-
+ 
     formdata.append('file', file);
-
+ 
     const req = new HttpRequest('POST', 'http://localhost:8080/api/file/upload', formdata, {
       reportProgress: true,
       responseType: 'text'
     });
-
+ 
     return this.http.request(req);
   }
 
@@ -47,12 +47,6 @@ export class UploadFileService{
   //pobiera z rest wszystkie pliki
   getFiles(): Observable<any> {
     return this.http.get('http://localhost:8080/api/file/all');
-  }
-
-
-  //wyszukiwanie wszystkich plikow po id, DO ZMIANY NA WYSZUKIWANIE PO USER_ID
-  getFilesById(id) : Observable<any>{
-  	return this.http.get('http://localhost:8080/api/file/'+id+'/all');
   }
 
   //tworzy plik blob z dorzuceniem tokena w naglowku
@@ -76,9 +70,9 @@ export class UploadFileService{
     )
 }
 
+   
 
-
-
+    
 
 
 }

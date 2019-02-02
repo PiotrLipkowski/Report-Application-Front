@@ -1,0 +1,10 @@
+main {
+    height: calc(100% - 64px);
+}
+
+mat-sidenav {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

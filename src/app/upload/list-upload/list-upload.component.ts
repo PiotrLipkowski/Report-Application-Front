@@ -36,7 +36,7 @@ export class ListUploadComponent implements OnInit {
     this.showFilesByUserNameBoolean = enable;
 
     if (enable) {
-      this.fileUploadsByUserName = this.uploadService.getFilesByUserName(this.uploadService.token.getUsername());
+      this.fileUploadsByUserName = this.uploadService.getFilesByUserName('chris');
     }
   }
 

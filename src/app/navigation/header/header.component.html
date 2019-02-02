@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+   <div>
+    <a routerLink="/home">ReportApp</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li *ngIf="authority === 'user'" class="nav-item">
+        <a class="nav-link" routerLink="user">Widok użytkownika</a>
+      </li>
+      <li *ngIf="authority === 'admin'" class="nav-item">
+        <a class="nav-link" routerLink="admin">Widok administratora</a>
+      </li>
+      <li *ngIf="authority === 'pm'" class="nav-item">
+        <a class="nav-link" routerLink="pm">Widok PM</a>
+      </li>
+      <li *ngIf="!authority" class="nav-item">
+        <a class="nav-link" routerLink="auth/login">Login</a>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

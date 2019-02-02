@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
- 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
@@ -11,12 +12,16 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { PmComponent } from './pm/pm.component';
- 
+
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { FormUploadComponent } from './upload/form-upload/form-upload.component';
 import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatTabsModule, MatSidenavModule, MatIconModule, MatButtonModule, MatListModule } from '@angular/material';
+import { HeaderComponent } from './navigation/header/header.component';
+import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +35,22 @@ import { DetailsUploadComponent } from './upload/details-upload/details-upload.c
     FormUploadComponent,
     ListUploadComponent,
     DetailsUploadComponent,
+    HeaderComponent,
+    SidenavListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

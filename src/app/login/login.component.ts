@@ -10,6 +10,8 @@ import { AuthLoginInfo } from '../auth/login-info';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  hide = true;
+
   form: any = {};
   isLoggedIn = false;
   isLoginFailed = false;

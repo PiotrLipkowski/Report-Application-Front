@@ -19,7 +19,11 @@ import { ListUploadComponent } from './upload/list-upload/list-upload.component'
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatTabsModule, MatSidenavModule, MatIconModule, MatButtonModule, MatListModule } from '@angular/material';
+import { MatToolbarModule,  MatTabsModule,
+  MatSidenavModule,  MatIconModule,
+  MatButtonModule,  MatListModule,
+  MatFormFieldModule, MatInputModule,
+  MatCardModule } from '@angular/material';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 
@@ -51,6 +55,9 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     MatIconModule,
     MatButtonModule,
     MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

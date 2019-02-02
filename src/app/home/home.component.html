@@ -1,7 +1,7 @@
 <div *ngIf="info.token; else loggedOut">
   <h5 class="text-primary">Twoje informacje o sesji</h5>
   <p>
-    <strong>Username:</strong> {{info.username}}<br/>
+    <strong>Username:</strong> {{info.username}}<br />
     <strong>Roles:</strong> {{info.authorities}}<br />
     <strong>Token:</strong> {{info.token}}.
   </p>
@@ -10,12 +10,14 @@
 </div>
 
 <ng-template #loggedOut>
-<main>
-  <div class="overlay">
-    <div class="center">
-      <h1>ReportApp</h1>
-      <button mat-flat-button color="primary">Zaloguj się!</button>
+  <div class="wrapper">
+    <div class="overlay">
+      <div class="center">
+        <h1>ReportApp</h1>
+        <a routerLink="/auth/login">
+          <button mat-flat-button color="primary">Zaloguj się!</button>
+        </a>
+      </div>
     </div>
   </div>
-</main>
 </ng-template>

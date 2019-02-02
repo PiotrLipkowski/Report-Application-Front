@@ -16,7 +16,7 @@ export class UploadFileService{
   info: any;
 
 
-  constructor(private http: HttpClient, private userService: UserService, private token: TokenStorageService) { }
+  constructor(private http: HttpClient, private userService: UserService, public token: TokenStorageService) { }
 
 
   //POST na serwer wybranego pliku
@@ -33,7 +33,7 @@ export class UploadFileService{
   }
   ngOnInit() {
       this.info = {
-      token: this.token.getToken(),
+
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };

@@ -3,12 +3,27 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { SignUpInfo } from '../auth/signup-info';
 
+export interface Subject {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
+  subjects: Subject[] = [
+    {value: 'eit-1', viewValue: 'Elektronika i telekomunikacja'},
+    {value: 'elek-2', viewValue: 'Elektrotechnika'},
+    {value: 'ener-3', viewValue: 'Energetyka'},
+    {value: 'is-4', viewValue: 'Informatyka stosowana'},
+    {value: 'ti-5',  viewValue: 'Teleinformatyka'}
+  ];
+
+
   form: any = {};
   signupInfo: SignUpInfo;
   isSignedUp = false;

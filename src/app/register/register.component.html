@@ -3,6 +3,96 @@
 </div>
 
 <ng-template #signupForm>
+  <div class="wrapper">
+    <div class="overlay">
+      <div class="center">
+        <mat-card class="auth-card">
+          <mat-card-header>
+            <mat-card-title>Rejestracja</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-vertical-stepper labelPosition="bottom" #stepper>
+              <mat-step [stepControl]="firstFormGroup">
+                <ng-template matStepLabel>Podaj imię i nazwisko</ng-template>
+                <mat-form-field class="mat-input">
+                  <input matInput placeholder="Imię" required>
+                </mat-form-field>
+                <mat-form-field class="mat-input">
+                  <input matInput placeholder="Nazwisko" required>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperNext>Dalej</button>
+                </div>
+              </mat-step>
+
+              <mat-step [stepControl]="secondFormGroup">
+                <ng-template matStepLabel>Podaj numer indeksu i kierunek studiów</ng-template>
+                <mat-form-field class="mat-input">
+                  <input matInput placeholder="Numer indeksu" required>
+                </mat-form-field>
+                <mat-form-field class="mat-input">
+                  <mat-select placeholder="Kierunek studiów">
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.value">
+                      {{subject.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Wroć</button>
+                  <button mat-button matStepperNext>Dalej</button>
+                </div>
+              </mat-step>
+
+              <mat-step [stepControl]="thirdFormGroup">
+                <ng-template matStepLabel>Podaj adres email i hasło</ng-template>
+                <mat-form-field class="mat-input">
+                  <input matInput placeholder="Email" required>
+                </mat-form-field>
+                <mat-form-field class="mat-input" required>
+                  <input matInput placeholder="Hasło" [type]="hide ? 'password' : 'text'">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Wroć</button>
+                  <button mat-button matStepperNext>Dalej</button>
+                </div>
+              </mat-step>
+
+              <mat-step>
+                <ng-template matStepLabel>Potwierdzenie</ng-template>
+                Czy chcesz zakończyć rejestrację?
+                <div>
+                  <button mat-button matStepperPrevious>Wróć</button>
+                  <button mat-button (click)="stepper.reset()">Zarejestruj się</button>
+                </div>
+              </mat-step>
+            </mat-vertical-stepper>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <!--
+  <mat-form-field class="mat-input">
+    <input matInput placeholder="Twoje imię" type="text">
+  </mat-form-field>
+  <mat-form-field class="mat-input">
+    <input matInput placeholder="Twoje nazwisko" type="text">
+  </mat-form-field>
+  <mat-form-field class="mat-input">
+    <input matInput placeholder="Nazwa użytkownika" type="text">
+  </mat-form-field>
+  <mat-form-field class="mat-input">
+    <input matInput placeholder="Numer indeksu" type="text">
+  </mat-form-field>
+  <mat-form-field class="mat-input">
+    <input matInput placeholder="Email" type="text">
+  </mat-form-field>
+  <mat-form-field class="mat-input">
+    <input matInput placeholder="Hasło" [type]="hide ? 'password' : 'text'">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+
   <div class="row col-sm-6" style="max-width:350px;">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
@@ -24,7 +114,8 @@
 
       <div class="form-group">
         <label for="username">Nazwa użytkownika</label>
-        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel" required />
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required />
         <div *ngIf="f.submitted && username.invalid">
           <div *ngIf="username.errors.required">Nazwa użytkownika jest wymagana</div>
         </div>
@@ -57,7 +148,8 @@
       </div>
       <div class="form-group">
         <label for="password">Hasło</label>
-        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel" required minlength="6" />
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+          required minlength="6" />
         <div *ngIf="f.submitted && password.invalid">
           <div *ngIf="password.errors.required">Hasło jest wymagany</div>
           <div *ngIf="password.errors.minlength">Hasło musi mieć conajmniej 6 znaków</div>
@@ -66,9 +158,10 @@
       <div class="form-group">
         <button class="btn btn-primary">Zarejestruj się!</button>
         <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
-          Błąd rejestracji, spróbuj ponownie!<br/>{{errorMessage}}
+          Błąd rejestracji, spróbuj ponownie!<br />{{errorMessage}}
         </div>
       </div>
     </form>
   </div>
+-->
 </ng-template>

@@ -23,7 +23,8 @@ import { MatToolbarModule,  MatTabsModule,
   MatSidenavModule,  MatIconModule,
   MatButtonModule,  MatListModule,
   MatFormFieldModule, MatInputModule,
-  MatCardModule } from '@angular/material';
+  MatCardModule, MatStepperModule,
+  MatSelectModule } from '@angular/material';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 
@@ -58,6 +59,8 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatStepperModule,
+    MatSelectModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

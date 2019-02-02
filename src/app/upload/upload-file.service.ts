@@ -10,7 +10,7 @@ import { UserService } from '../services/user.service';
   providedIn: 'root'
 })
 export class UploadFileService{
-  
+
   board: string;
   errorMessage: string;
   info: any;
@@ -22,19 +22,16 @@ export class UploadFileService{
   //POST na serwer wybranego pliku
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
- 
     formdata.append('file', file);
- 
-    const req = new HttpRequest('POST', 'http://localhost:8080/api/file/upload', formdata, {
+
+    const req = new HttpRequest('POST', 'http://localhost:8080/api/file/upload/'+this.token.getUsername(), formdata, {
       reportProgress: true,
       responseType: 'text'
     });
- 
+
     return this.http.request(req);
   }
-
   ngOnInit() {
-
       this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
@@ -49,9 +46,10 @@ export class UploadFileService{
     return this.http.get('http://localhost:8080/api/file/all');
   }
 
+
+
   //tworzy plik blob z dorzuceniem tokena w naglowku
   downloadFile(route: string, filename: string = null): void{
-
     const baseUrl = '';
     const token = this.token.getToken();
     const headers = new HttpHeaders().set('authorization','Bearer '+token);
@@ -70,9 +68,14 @@ export class UploadFileService{
     )
 }
 
-   
 
-    
+getFilesByUserName(userName) : Observable<any>{
+  	return this.http.get('http://localhost:8080/api/file/'+userName+'/all');
+  }
+
+
+
+
 
 
 }

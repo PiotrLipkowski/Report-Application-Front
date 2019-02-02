@@ -1,7 +1,11 @@
-
 <button class="button btn-info" *ngIf='showFile' (click)='showFiles(false)'>Hide Files</button>
- 
+
 <button class="button btn-info" *ngIf='!showFile' (click)='showFiles(true)'>Show Files</button>
+
+
+<button class="button btn-info" *ngIf='showFilesByUserNameBoolean' (click)='showFilesByUserName(true)'>Hide Files</button>
+
+<button class="button btn-info" *ngIf='!showFilesByUserNameBoolean' (click)='showFilesByUserName(true)'>Show Files</button>
 
 
 
@@ -16,3 +20,14 @@
   </div>
 </div>
 
+
+<div [hidden]="!showFilesByUserName">
+  <div class="panel panel-primary">
+    <div class="panel-heading">List of Files</div>
+    <div *ngFor="let file of fileUploadsByUserName | async">
+      <div class="panel-body">
+        <app-details-upload [fileUpload]='file'></app-details-upload>
+      </div>
+    </div>
+  </div>
+</div>

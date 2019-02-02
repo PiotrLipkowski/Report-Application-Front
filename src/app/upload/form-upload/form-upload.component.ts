@@ -22,7 +22,7 @@ export class FormUploadComponent implements OnInit {
 
   }
 
- 
+
   selectFile(event) {
     this.selectedFiles = event.target.files;
   }
@@ -36,6 +36,7 @@ export class FormUploadComponent implements OnInit {
         this.progress.percentage = Math.round(100 * event.loaded / event.total);
       } else if (event instanceof HttpResponse) {
         console.log('File is completely uploaded!');
+    
       }
     });
 

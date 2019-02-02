@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { TokenStorageService } from '../auth/token-storage.service';
- 
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -11,10 +11,10 @@ export class AdminComponent implements OnInit {
   board: string;
   errorMessage: string;
   info: any;
-  
- 
+
+
   constructor(private userService: UserService, private token: TokenStorageService) { }
- 
+
   ngOnInit() {
     this.userService.getAdminBoard().subscribe(
       data => {
@@ -30,8 +30,10 @@ export class AdminComponent implements OnInit {
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };
+
+  ;
   }
-  
+
   logout() {
     this.token.signOut();
     window.location.reload();

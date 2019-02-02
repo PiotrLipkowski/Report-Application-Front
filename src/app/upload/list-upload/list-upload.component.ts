@@ -11,7 +11,10 @@ import { UploadFileService } from '../upload-file.service';
 export class ListUploadComponent implements OnInit {
 
   showFile = false;
+  showFilesByUserNameBoolean = false;
+
   fileUploads: Observable<string[]>;
+  fileUploadsByUserName: Observable<string[]>;
 
   constructor(private uploadService: UploadFileService) { }
 
@@ -25,7 +28,17 @@ export class ListUploadComponent implements OnInit {
 
     if (enable) {
       this.fileUploads = this.uploadService.getFiles();
-      
+
     }
   }
+
+  showFilesByUserName(enable: boolean) {
+    this.showFilesByUserNameBoolean = enable;
+
+    if (enable) {
+      this.fileUploadsByUserName = this.uploadService.getFilesByUserName(this.uploadService.token.getUsername());
+    }
+  }
+
+
 }

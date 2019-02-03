@@ -11,7 +11,7 @@
     <a mat-list-item *ngIf="authority === 'pm'" routerLink="/pm" (click)="onSidenavClose()">
         <mat-icon>account_balance</mat-icon><span class="nav-caption">Panel PM</span>
     </a>
-    <a mat-list-item *ngIf="!authority" routerLink="/pm" (click)="onSidenavClose()">
+    <a mat-list-item *ngIf="!authority" routerLink="/auth/login" (click)="onSidenavClose()">
         <mat-icon>account_balance</mat-icon><span class="nav-caption">Zaloguj się</span>
     </a>
   </mat-nav-list>

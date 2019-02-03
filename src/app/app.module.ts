@@ -17,6 +17,8 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { FormUploadComponent } from './upload/form-upload/form-upload.component';
 import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
+import { StudentDetailsComponent } from './student-details/student-details.component';
+import { StudentListComponent } from './student-list/student-list.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule,  MatTabsModule,
@@ -42,6 +44,8 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     DetailsUploadComponent,
     HeaderComponent,
     SidenavListComponent,
+    StudentDetailsComponent,
+    StudentListComponent,
   ],
   imports: [
     BrowserModule,

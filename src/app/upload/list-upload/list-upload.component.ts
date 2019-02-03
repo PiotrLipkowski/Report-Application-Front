@@ -30,7 +30,6 @@ export class ListUploadComponent implements OnInit {
 
   showFiles(enable: boolean) {
     this.showFile = enable;
-
     if (enable) {
       this.fileUploads = this.uploadFileService.getFiles();
     }
@@ -38,7 +37,6 @@ export class ListUploadComponent implements OnInit {
 
   showFilesByUserName(enable: boolean) {
     this.showFilesByUserNameBoolean = enable;
-
     if (enable) {
       this.fileUploadsByUserName = this.uploadFileService.getFilesByUserName('chris');
     }

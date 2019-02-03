@@ -24,7 +24,7 @@ import { MatToolbarModule,  MatTabsModule,
   MatButtonModule,  MatListModule,
   MatFormFieldModule, MatInputModule,
   MatCardModule, MatStepperModule,
-  MatSelectModule } from '@angular/material';
+  MatSelectModule, MatProgressBarModule } from '@angular/material';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 
@@ -62,6 +62,7 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     MatCardModule,
     MatStepperModule,
     MatSelectModule,
+    MatProgressBarModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

@@ -1,23 +1,35 @@
 <div *ngIf="info.token; else loggedOut">
-<p>
-	Admin works
+	<p>
+		Admin works
 
-</p>
+	</p>
 </div>
 <div class="container" style="width:400px">
-  <div style="color: blue; margin-bottom: 20px">
-    <h1>{{title}}</h1>
-    <h3>{{description}}</h3>
-  </div>
+	<div style="color: blue; margin-bottom: 20px">
+		<h1>{{title}}</h1>
+		<h3>{{description}}</h3>
+	</div>
 
-  <app-form-upload></app-form-upload>
+	<app-form-upload></app-form-upload>
 
-  <br/>
-  <br/>
+	<br/>
+	<br/>
 
-  <app-list-upload></app-list-upload>
+	<app-list-upload></app-list-upload>
+</div>
+
+
+
+
+<div style="padding: 20px;">
+	<h1 style="color: blue">{{title}}</h1>
+	<h3>{{description}}</h3>
+	<nav>
+		<a routerLink="student" class="btn btn-primary active" role="button" routerLinkActive="active">Student</a>
+	</nav>
+	<router-outlet></router-outlet>
 </div>
 
 <ng-template #loggedOut>
-  Prosze się zalogować.
+	Prosze się zalogować.
 </ng-template>

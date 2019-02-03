@@ -16,6 +16,8 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { FormUploadComponent } from './upload/form-upload/form-upload.component';
 import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
+import { StudentDetailsComponent } from './student-details/student-details.component';
+import { StudentListComponent } from './student-list/student-list.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { DetailsUploadComponent } from './upload/details-upload/details-upload.c
     FormUploadComponent,
     ListUploadComponent,
     DetailsUploadComponent,
+    StudentDetailsComponent,
+    StudentListComponent,
   ],
   imports: [
     BrowserModule,

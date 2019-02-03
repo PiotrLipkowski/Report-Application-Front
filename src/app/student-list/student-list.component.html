@@ -1,0 +1,6 @@
+<h1>Studenci</h1>
+
+<div *ngFor="let student of student | async" style="width: 300px;">
+  <app-student-details [student]='student'>
+  </app-student-details>
+</div>

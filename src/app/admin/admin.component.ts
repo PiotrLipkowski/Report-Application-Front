@@ -12,7 +12,6 @@ export class AdminComponent implements OnInit {
   errorMessage: string;
   info: any;
 
-
   constructor(private userService: UserService, private token: TokenStorageService) { }
 
   ngOnInit() {

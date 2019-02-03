@@ -1,26 +1,12 @@
 <div class="buttons">
-  <button mat-flat-button color="accent" *ngIf='showFile' (click)='showFiles(false)'>Hide Files</button>
-  <button mat-flat-button color="accent" *ngIf='!showFile' (click)='showFiles(true)'>Show Files</button>
-
-  <button mat-flat-button color="accent" *ngIf='showFilesByUserNameBoolean' (click)='showFilesByUserName(true)'>Hide
-    Files</button>
-  <button mat-flat-button color="accent" *ngIf='!showFilesByUserNameBoolean' (click)='showFilesByUserName(true)'>Show
-    Files</button>
+  <button mat-flat-button color="accent" *ngIf='showFilesByUserNameBoolean' (click)='showFilesByUserName(false)'>Ukryj
+    pliki</button>
+  <button mat-flat-button color="accent" *ngIf='!showFilesByUserNameBoolean' (click)='showFilesByUserName(true)'>Pokaż
+    pliki</button>
 </div>
 
-<mat-list [hidden]="!showFile">
+<mat-list *ngIf='showFilesByUserNameBoolean'>
   <h3 mat-subheader>Moje pliki</h3>
-  <mat-list-item *ngFor="let file of fileUploads | async">
-    <mat-icon mat-list-icon>insert_drive_file</mat-icon>
-    <h4 mat-line>{{file.name}}</h4>
-    <p mat-line>#ID: {{file.id}}</p>
-    <button mat-flat-button color="accent" (click)="getMyFile('http://localhost:8080/api/file/'+ file.id, file.name)">Pobierz</button>
-  </mat-list-item>
-  <mat-divider></mat-divider>
-</mat-list>
-
-<mat-list [hidden]="!showFilesByUserName">
-  <h3 mat-subheader>Pliki studentów</h3>
   <mat-list-item *ngFor="let file of fileUploadsByUserName | async">
     <mat-icon mat-list-icon>insert_drive_file</mat-icon>
     <h4 mat-line>{{file.name}}</h4>

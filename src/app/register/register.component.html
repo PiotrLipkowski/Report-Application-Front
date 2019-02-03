@@ -11,88 +11,70 @@
             <mat-card-title>Rejestracja</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-            <mat-vertical-stepper labelPosition="bottom" #stepper>
-              <mat-step [stepControl]="firstFormGroup">
-                <ng-template matStepLabel>Podaj imię i nazwisko</ng-template>
-                <mat-form-field class="mat-input">
-                  <input matInput placeholder="Imię" required>
-                </mat-form-field>
-                <mat-form-field class="mat-input">
-                  <input matInput placeholder="Nazwisko" required>
-                </mat-form-field>
-                <div>
-                  <button mat-button matStepperNext>Dalej</button>
-                </div>
-              </mat-step>
+            <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+              <mat-vertical-stepper formArrayName="formArray" labelPosition="bottom" #stepper>
+                <mat-step formGroupName="0" [stepControl]="formArray?.get([0])">
+                  <ng-template matStepLabel>Podaj imię i nazwisko</ng-template>
+                  <mat-form-field class="mat-input">
+                    <input matInput formControlName="firstNameFormCtrl" placeholder="Imię" required>
+                  </mat-form-field>
+                  <mat-form-field class="mat-input">
+                    <input matInput formControlName="lastNameFormCtrl" placeholder="Nazwisko" required>
+                  </mat-form-field>
+                  <div>
+                    <button mat-button matStepperNext type="button">Dalej</button>
+                  </div>
+                </mat-step>
 
-              <mat-step [stepControl]="secondFormGroup">
-                <ng-template matStepLabel>Podaj numer indeksu i kierunek studiów</ng-template>
-                <mat-form-field class="mat-input">
-                  <input matInput placeholder="Numer indeksu" required>
-                </mat-form-field>
-                <mat-form-field class="mat-input">
-                  <mat-select placeholder="Kierunek studiów">
-                    <mat-option *ngFor="let subject of subjects" [value]="subject.value">
-                      {{subject.viewValue}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <div>
-                  <button mat-button matStepperPrevious>Wroć</button>
-                  <button mat-button matStepperNext>Dalej</button>
-                </div>
-              </mat-step>
+                <mat-step formGroupName="1" [stepControl]="formArray?.get([1])">
+                  <ng-template matStepLabel>Podaj numer indeksu i kierunek studiów</ng-template>
+                  <mat-form-field class="mat-input">
+                    <input matInput formControlName="indexFormCtrl" placeholder="Numer indeksu" required>
+                  </mat-form-field>
+                  <mat-form-field class="mat-input">
+                    <input matInput formControlName="groupIdFormCtrl" placeholder="Numer grupy" required>
+                  </mat-form-field>
+                  <div>
+                    <button mat-button matStepperPrevious type="button">Wroć</button>
+                    <button mat-button matStepperNext type="button">Dalej</button>
+                  </div>
+                </mat-step>
 
-              <mat-step [stepControl]="thirdFormGroup">
-                <ng-template matStepLabel>Podaj adres email i hasło</ng-template>
-                <mat-form-field class="mat-input">
-                  <input matInput placeholder="Email" required>
-                </mat-form-field>
-                <mat-form-field class="mat-input" required>
-                  <input matInput placeholder="Hasło" [type]="hide ? 'password' : 'text'">
-                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </mat-form-field>
-                <div>
-                  <button mat-button matStepperPrevious>Wroć</button>
-                  <button mat-button matStepperNext>Dalej</button>
-                </div>
-              </mat-step>
+                <mat-step formGroupName="2" [stepControl]="formArray?.get([2])">
+                  <ng-template matStepLabel>Podaj adres email i hasło</ng-template>
+                  <mat-form-field class="mat-input">
+                    <input matInput formControlName="userNameFormCtrl" placeholder="Nazwa użytkownika" required>
+                  </mat-form-field>
+                  <mat-form-field class="mat-input">
+                    <input matInput formControlName="emailFormCtrl" placeholder="Email" required>
+                  </mat-form-field>
+                  <mat-form-field class="mat-input" required>
+                    <input matInput formControlName="passwordFormCtrl" placeholder="Hasło" [type]="hide ? 'password' : 'text'"
+                      required>
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </mat-form-field>
+                  <div>
+                    <button mat-button matStepperPrevious type="button">Wroć</button>
+                    <button mat-button matStepperNext type="button">Dalej</button>
+                  </div>
+                </mat-step>
 
-              <mat-step>
-                <ng-template matStepLabel>Potwierdzenie</ng-template>
-                Czy chcesz zakończyć rejestrację?
-                <div>
-                  <button mat-button matStepperPrevious>Wróć</button>
-                  <button mat-button (click)="stepper.reset()">Zarejestruj się</button>
-                </div>
-              </mat-step>
-            </mat-vertical-stepper>
+                <mat-step>
+                  <ng-template matStepLabel>Potwierdzenie</ng-template>
+                  Czy chcesz zakończyć rejestrację?
+                  <div>
+                    <button mat-button>Zatwierdź</button>
+                    <button mat-button (click)="stepper.reset()">Resetuj</button>
+                  </div>
+                </mat-step>
+              </mat-vertical-stepper>
+            </form>
           </mat-card-content>
         </mat-card>
       </div>
     </div>
   </div>
   <!--
-  <mat-form-field class="mat-input">
-    <input matInput placeholder="Twoje imię" type="text">
-  </mat-form-field>
-  <mat-form-field class="mat-input">
-    <input matInput placeholder="Twoje nazwisko" type="text">
-  </mat-form-field>
-  <mat-form-field class="mat-input">
-    <input matInput placeholder="Nazwa użytkownika" type="text">
-  </mat-form-field>
-  <mat-form-field class="mat-input">
-    <input matInput placeholder="Numer indeksu" type="text">
-  </mat-form-field>
-  <mat-form-field class="mat-input">
-    <input matInput placeholder="Email" type="text">
-  </mat-form-field>
-  <mat-form-field class="mat-input">
-    <input matInput placeholder="Hasło" [type]="hide ? 'password' : 'text'">
-    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-  </mat-form-field>
-
   <div class="row col-sm-6" style="max-width:350px;">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">

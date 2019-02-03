@@ -1,0 +1,11 @@
+.buttons {
+    padding: 15px 0;
+}
+
+.buttons button {
+    margin: 5px;
+}
+
+.mat-flat-button {
+    min-width: 90px;
+}

@@ -27,8 +27,8 @@ export class DetailsUploadComponent implements OnInit {
   }
 
 
-  getMyFile(){
-    this.uploadFileService.downloadFile();
+  getMyFile(fileUrl, fileName){
+    this.uploadFileService.downloadFile(fileUrl, fileName);
   }
 
 

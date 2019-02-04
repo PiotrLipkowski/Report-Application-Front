@@ -29,6 +29,7 @@ import { MatToolbarModule,  MatTabsModule,
   MatSelectModule, MatProgressBarModule } from '@angular/material';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import { ListSingleUploadComponent } from './upload/list-single-upload/list-single-upload.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     SidenavListComponent,
     StudentDetailsComponent,
     StudentListComponent,
+    ListSingleUploadComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,9 @@
-<div *ngIf="student">
-  <div class="buttons">
-    <button mat-flat-button color="accent" *ngIf='showFilesByUserNameBoolean' (click)='showFilesByUserName(false, student.username)'>Ukryj
-    pliki</button>
-    <button mat-flat-button color="accent" *ngIf='!showFilesByUserNameBoolean' (click)='showFilesByUserName(true, student.username)'>Pokaż
-    pliki</button>
-  </div>
+<div class="buttons">
+  <button mat-flat-button color="accent" *ngIf='showFilesByUserNameBoolean' (click)='showFilesByUserName(false)'>Ukryj
+  pliki</button>
+  <button mat-flat-button color="accent" *ngIf='!showFilesByUserNameBoolean' (click)='showFilesByUserName(true)'>Pokaż
+  pliki</button>
 </div>
-
-
 
 <mat-list *ngIf='showFilesByUserNameBoolean'>
   <h3 mat-subheader>Moje pliki</h3>

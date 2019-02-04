@@ -3,24 +3,21 @@ import { Observable } from 'rxjs';
 import { UploadFileService } from '../upload-file.service';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
-import { StudentService } from '../../student.service';
-import { Student } from '../../student';
+
 
 @Injectable({
   providedIn: 'root'
 })
 
 @Component({
-  selector: 'app-list-upload',
-  templateUrl: './list-upload.component.html',
-  styleUrls: ['./list-upload.component.css']
+  selector: 'app-list-single-upload',
+  templateUrl: './list-single-upload.component.html',
+  styleUrls: ['./list-single-upload.component.css']
 })
-
-export class ListUploadComponent implements OnInit {
+export class ListSingleUploadComponent implements OnInit {
   fileUrl
 	@Input() fileUpload: string;
 
-  @Input() student: Student;
 
   showFile = false;
   showFilesByUserNameBoolean = false;
@@ -28,9 +25,11 @@ export class ListUploadComponent implements OnInit {
   fileUploads: Observable<string[]>;
   fileUploadsByUserName: Observable<string[]>;
 
-  constructor(private http: HttpClient, private uploadFileService: UploadFileService, private sanitizer: DomSanitizer, private studentService: StudentService) { }
+  constructor(private http: HttpClient, private uploadFileService: UploadFileService, private sanitizer: DomSanitizer) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+   }
 
   showFiles(enable: boolean) {
     this.showFile = enable;
@@ -39,10 +38,10 @@ export class ListUploadComponent implements OnInit {
     }
   }
 
-  showFilesByUserName(enable: boolean, username:string) {
+  showFilesByUserName(enable: boolean) {
     this.showFilesByUserNameBoolean = enable;
     if (enable) {
-      this.fileUploadsByUserName = this.uploadFileService.getFilesByUserName(username);
+      this.fileUploadsByUserName = this.uploadFileService.getFilesByUserName(this.uploadFileService.token.getUsername());
     }
   }
 

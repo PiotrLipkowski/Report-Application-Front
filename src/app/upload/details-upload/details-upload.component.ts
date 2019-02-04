@@ -21,19 +21,19 @@ export class DetailsUploadComponent implements OnInit {
 	@Input() fileUpload: string;
 
   constructor(private http: HttpClient, private uploadFileService: UploadFileService, private sanitizer: DomSanitizer) { }
-  
+
   ngOnInit() {
-	
+
   }
 
 
-  getMyFile(fileUrl, fileName){
-    this.uploadFileService.downloadFile(fileUrl, fileName);
+  getMyFile(){
+    this.uploadFileService.downloadFile();
   }
 
 
-       
- 
+
+
 
 
 }

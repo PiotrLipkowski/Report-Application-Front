@@ -9,59 +9,65 @@ import { UserService } from '../services/user.service';
 @Injectable({
   providedIn: 'root'
 })
-export class UploadFileService{
-
+export class UploadFileService {
   board: string;
   errorMessage: string;
   info: any;
 
-
   constructor(private http: HttpClient, private userService: UserService, public token: TokenStorageService) { }
 
-
-  //POST na serwer wybranego pliku
+  // POST na serwer wybranego pliku
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
     formdata.append('file', file);
 
-    const req = new HttpRequest('POST', 'http://localhost:8080/api/file/upload/'+this.token.getUsername(), formdata, {
+    const req = new HttpRequest('POST', 'http://localhost:8080/api/file/upload/' + this.token.getUsername(), formdata, {
       reportProgress: true,
       responseType: 'text'
     });
 
     return this.http.request(req);
   }
+
+  // Update file comment
+  updateFileComment(fileId: number, comment: string) {
+    return this.http.put('http://localhost:8080/api/file/updateComment/' + fileId + '/' + comment, {},{responseType: 'text'}).subscribe(
+      data => {
+        console.log('PUT zrealizowany ' , data);
+      },
+      error1 => {
+        console.log('Error: ', error1);
+      }
+    );
+  }
+
   ngOnInit() {
       this.info = {
-
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };
-
   }
 
-
-  //pobiera z rest wszystkie pliki
+  // pobiera z rest wszystkie pliki
   getFiles(): Observable<any> {
     return this.http.get('http://localhost:8080/api/file/all');
   }
 
-
-
-  //tworzy plik blob z dorzuceniem tokena w naglowku
-  downloadFile(route: string, filename: string = null): void{
+  // tworzy plik blob z dorzuceniem tokena w naglowku
+  downloadFile(route: string, filename: string = null): void {
     const baseUrl = '';
     const token = this.token.getToken();
-    const headers = new HttpHeaders().set('authorization','Bearer '+token);
+    const headers = new HttpHeaders().set('authorization', 'Bearer ' + token);
     this.http.get(baseUrl + route,{headers, responseType: 'blob' as 'json'}).subscribe(
         (response: any) =>{
-            let dataType = response.type;
-            let binaryData = [];
+            const dataType = response.type;
+          const binaryData = [];
             binaryData.push(response);
-            let downloadLink = document.createElement('a');
+          const downloadLink = document.createElement('a');
             downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
-            if (filename)
-                downloadLink.setAttribute('download', filename);
+            if (filename){
+              downloadLink.setAttribute('download', filename);
+            }
             document.body.appendChild(downloadLink);
             downloadLink.click();
         }
@@ -69,8 +75,8 @@ export class UploadFileService{
 }
 
 
-getFilesByUserName(userName) : Observable<any>{
-  	return this.http.get('http://localhost:8080/api/file/'+userName+'/all');
+getFilesByUserName(userName): Observable<any> {
+  	  return this.http.get('http://localhost:8080/api/file/' + userName + '/all');
   }
 
 

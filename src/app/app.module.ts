@@ -15,7 +15,7 @@ import { PmComponent } from './pm/pm.component';
 
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { FormUploadComponent } from './upload/form-upload/form-upload.component';
-import { ListUploadComponent } from './upload/list-upload/list-upload.component';
+import {CommentDialogComponent, ListUploadComponent} from './upload/list-upload/list-upload.component';
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { StudentListComponent } from './student-list/student-list.component';
@@ -26,7 +26,8 @@ import { MatToolbarModule,  MatTabsModule,
   MatButtonModule,  MatListModule,
   MatFormFieldModule, MatInputModule,
   MatCardModule, MatStepperModule,
-  MatSelectModule, MatProgressBarModule } from '@angular/material';
+  MatSelectModule, MatProgressBarModule,
+  MatDialogModule } from '@angular/material';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { ListSingleUploadComponent } from './upload/list-single-upload/list-single-upload.component';
@@ -48,6 +49,7 @@ import { ListSingleUploadComponent } from './upload/list-single-upload/list-sing
     StudentDetailsComponent,
     StudentListComponent,
     ListSingleUploadComponent,
+    CommentDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -69,8 +71,10 @@ import { ListSingleUploadComponent } from './upload/list-single-upload/list-sing
     MatStepperModule,
     MatSelectModule,
     MatProgressBarModule,
+    MatDialogModule,
   ],
   providers: [httpInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CommentDialogComponent]
 })
 export class AppModule { }

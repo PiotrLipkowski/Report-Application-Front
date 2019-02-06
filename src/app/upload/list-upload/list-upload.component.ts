@@ -7,9 +7,7 @@ import { StudentService } from '../../student.service';
 import { Student } from '../../student';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 
-@Injectable({
-  providedIn: 'root'
-})
+
 
 export interface DialogData {
   comment: string;
@@ -19,6 +17,10 @@ export interface DialogData {
   selector: 'app-list-upload',
   templateUrl: './list-upload.component.html',
   styleUrls: ['./list-upload.component.css']
+})
+
+@Injectable({
+  providedIn: 'root'
 })
 
 export class ListUploadComponent implements OnInit {

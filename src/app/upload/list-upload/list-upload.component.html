@@ -19,8 +19,7 @@
     <p mat-line>Komentarz: {{file.comment}}</p>
     <p mat-line>Ocena: {{file.grade}}</p>
     <button mat-flat-button color="accent" (click)="getMyFile('http://localhost:8080/api/file/'+ file.id, file.name)">Pobierz</button>
-    <!--<button mat-flat-button color="accent" (click)="updateFileComment('1','komentarz2')">Dodaj komentarz</button>-->
-    <button mat-flat-button color="accent" (click)="openDialog(file.id)">Dodaj komentarz</button>
+    <button mat-flat-button color="accent" (click)="openDialog(file.id)">Zmień</button>
   </mat-list-item>
   <mat-divider></mat-divider>
 </mat-list>

@@ -53,6 +53,30 @@ export class UploadFileService {
     );
   }
 
+  // Get file grade
+  getFileGrade(fileId: number) {
+    return this.http.get('http://localhost:8080/api/file/grade/' + fileId, { responseType: 'text' }).subscribe(
+      data => {
+        console.log('Get zrealizowany ' , data);
+      },
+      error => {
+        console.log('Error: ', error);
+      }
+    );
+  }
+
+  // Get file comment
+  getFileComment(fileId: number) {
+    return this.http.get('http://localhost:8080/api/file/comment/' + fileId, { responseType: 'text' }).subscribe(
+      data => {
+        console.log('Get zrealizowany ' , data);
+      },
+      error => {
+        console.log('Error: ', error);
+      }
+    );
+  }
+
   ngOnInit() {
       this.info = {
       username: this.token.getUsername(),
@@ -77,23 +101,17 @@ export class UploadFileService {
             binaryData.push(response);
           const downloadLink = document.createElement('a');
             downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
-            if (filename){
+            if (filename) {
               downloadLink.setAttribute('download', filename);
             }
             document.body.appendChild(downloadLink);
             downloadLink.click();
         }
-    )
+    );
 }
 
 
 getFilesByUserName(userName): Observable<any> {
-  	  return this.http.get('http://localhost:8080/api/file/' + userName + '/all');
+    return this.http.get('http://localhost:8080/api/file/' + userName + '/all');
   }
-
-
-
-
-
-
 }

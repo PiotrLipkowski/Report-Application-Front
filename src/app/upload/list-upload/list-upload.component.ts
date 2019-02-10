@@ -7,13 +7,13 @@ import { StudentService } from '../../student.service';
 import { Student } from '../../student';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 
-@Injectable({
-  providedIn: 'root'
-})
-
 export interface DialogData {
   comment: string;
 }
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-list-upload',
@@ -25,8 +25,6 @@ export class ListUploadComponent implements OnInit {
   @Input() fileUpload: string;
 
   @Input() student: Student;
-
-
 
   showFile = false;
   showFilesByUserNameBoolean = false;
@@ -43,11 +41,15 @@ export class ListUploadComponent implements OnInit {
   openDialog(fileId: number): void {
     const dialogRef = this.dialog.open(CommentDialogComponent, {
       width: '250px',
-      data: {fileId : fileId}
+      data: {fileId : fileId},
+      disableClose: true,
+      autoFocus: true,
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.updateFileComment(fileId, result);
+      if (result !== undefined) {
+        this.updateFileComment(fileId, result);
+      }
     });
   }
 

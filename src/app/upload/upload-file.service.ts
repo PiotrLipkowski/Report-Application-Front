@@ -31,7 +31,7 @@ export class UploadFileService {
 
   // Update file comment
   updateFileComment(fileId: number, comment: string) {
-    return this.http.put('http://localhost:8080/api/file/updateComment/' + fileId + '/' + comment, {},{responseType: 'text'}).subscribe(
+    return this.http.put('http://localhost:8080/api/file/updateComment/' + fileId + '/' + comment, {}, { responseType: 'text'}).subscribe(
       data => {
         console.log('PUT zrealizowany ' , data);
       },

@@ -35,8 +35,20 @@ export class UploadFileService {
       data => {
         console.log('PUT zrealizowany ' , data);
       },
-      error1 => {
-        console.log('Error: ', error1);
+      error => {
+        console.log('Error: ', error);
+      }
+    );
+  }
+
+  // Update file grade
+  updateFileGrade(fileId: number, grade: number) {
+    return this.http.put('http://localhost:8080/api/file/updateGrade/' + fileId + '/' + grade, {}, { responseType: 'text'}).subscribe(
+      data => {
+        console.log('PUT zrealizowany ' , data);
+      },
+      error => {
+        console.log('Error: ', error);
       }
     );
   }

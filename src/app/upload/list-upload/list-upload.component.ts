@@ -74,6 +74,13 @@ export class ListUploadComponent implements OnInit {
   updateFileComment(fileId: number, comment: string) {
     this.uploadFileService.updateFileComment(fileId, comment);
   }
+
+  updateFileGrade(fileId: number, grade: number) {
+    this.uploadFileService.updateFileGrade(fileId, grade);
+  }
+
+
+
 }
 
 @Component({

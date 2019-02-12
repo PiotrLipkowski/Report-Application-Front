@@ -1,7 +1,9 @@
 <h2 mat-dialog-title>Zmień dane</h2>
 <div mat-dialog-content>
+  <p class="caption">Aktualna ocena: {{data.currentGrade}}</p>
+  <p class="caption">Aktualny komentarz: {{data.currentComment}}</p>
   <mat-form-field>
-    <mat-select [(ngModel)]="data.grade" name="grade" placeholder="Ocena" [value]="data.currentGrade">
+    <mat-select [(ngModel)]="data.grade" name="grade" placeholder="Ocena">
       <mat-option [value]="2">2</mat-option>
       <mat-option [value]="2.5">2.5</mat-option>
       <mat-option [value]="3">3</mat-option>
@@ -10,8 +12,9 @@
       <mat-option [value]="4.5">4.5</mat-option>
       <mat-option [value]="5">5</mat-option>
     </mat-select>
-    <mat-divider></mat-divider><br><br>
-    <input placeholder="Komentarz" [value]="data.currentComment" matInput [(ngModel)]="data.comment">
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Komentarz" name="comment"  matInput [(ngModel)]="data.comment">
   </mat-form-field>
 </div>
 

@@ -51,11 +51,13 @@ export class ListUploadComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result.comment !== undefined) {
-        this.updateFileComment(fileId, result.comment);
-      }
-      if (result.grade !== undefined) {
-        this.updateFileGrade(fileId, result.grade);
+      if (result !== undefined) {
+        if (result.comment !== undefined) {
+          this.updateFileComment(fileId, result.comment);
+        }
+        if (result.grade !== undefined) {
+          this.updateFileGrade(fileId, result.grade);
+        }
       }
     });
   }
@@ -87,11 +89,11 @@ export class ListUploadComponent implements OnInit {
   }
 
   getFileGrade(fileId: number) {
-    this.uploadFileService.getFileGrade(fileId);
+    return this.uploadFileService.getFileGrade(fileId);
   }
 
   getFileComment(fileId: number) {
-    this.uploadFileService.getFileComment(fileId);
+    return this.uploadFileService.getFileComment(fileId);
   }
 }
 
@@ -103,7 +105,9 @@ export class CommentDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<CommentDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    console.log(data);
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

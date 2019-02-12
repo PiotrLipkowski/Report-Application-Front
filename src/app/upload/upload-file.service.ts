@@ -5,16 +5,20 @@ import { TokenStorageService } from '../auth/token-storage.service';
 import { UserService } from '../services/user.service';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class UploadFileService {
-  board: string;
-  errorMessage: string;
+export class UploadFileService implements OnInit {
   info: any;
 
   constructor(private http: HttpClient, private userService: UserService, public token: TokenStorageService) { }
+
+  ngOnInit() {
+    this.info = {
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
+  }
 
   // POST na serwer wybranego pliku
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
@@ -57,7 +61,7 @@ export class UploadFileService {
   getFileGrade(fileId: number) {
     return this.http.get('http://localhost:8080/api/file/grade/' + fileId, { responseType: 'text' }).subscribe(
       data => {
-        console.log('Get zrealizowany ' , data);
+        console.log('Data: ', data);
       },
       error => {
         console.log('Error: ', error);
@@ -69,7 +73,7 @@ export class UploadFileService {
   getFileComment(fileId: number) {
     return this.http.get('http://localhost:8080/api/file/comment/' + fileId, { responseType: 'text' }).subscribe(
       data => {
-        console.log('Get zrealizowany ' , data);
+        console.log('Data: ', data);
       },
       error => {
         console.log('Error: ', error);
@@ -77,12 +81,7 @@ export class UploadFileService {
     );
   }
 
-  ngOnInit() {
-      this.info = {
-      username: this.token.getUsername(),
-      authorities: this.token.getAuthorities()
-    };
-  }
+
 
   // pobiera z rest wszystkie pliki
   getFiles(): Observable<any> {

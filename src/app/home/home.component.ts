@@ -8,8 +8,6 @@ import { TokenStorageService } from '../auth/token-storage.service';
 })
 export class HomeComponent implements OnInit {
   info: any;
-  board:string;
-  errorMessage: string;
 
   constructor(private token: TokenStorageService) { }
 

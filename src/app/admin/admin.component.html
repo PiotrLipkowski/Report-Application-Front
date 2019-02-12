@@ -1,4 +1,4 @@
-<div *ngIf="info.token; else loggedOut">
+<div *ngIf="token.hasAdminRole(); else loggedOut">
 	<div class="container">
 		<h1>Lista sprawozdań</h1>
 

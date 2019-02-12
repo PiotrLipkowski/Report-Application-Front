@@ -1,9 +1,13 @@
+<div *ngIf="token.hasAdminRole(); else loggedOut">
+
 <h1>Lista studentów</h1>
 
 <div *ngFor="let student of students | async" style="width: 50vw;">
   <app-student-details [student]='student'>
   </app-student-details>
   <app-list-upload [student]='student'></app-list-upload>
+</div>
+
 </div>
 
 <ng-template #loggedOut>

@@ -86,7 +86,7 @@ export class UploadFileService {
 
   // pobiera z rest wszystkie pliki
   getFiles(): Observable<any> {
-    return this.http.get('http://localhost:8080/api/file/all');
+    return this.http.get('http://localhost:8080/api/file');
   }
 
   // tworzy plik blob z dorzuceniem tokena w naglowku
@@ -94,8 +94,8 @@ export class UploadFileService {
     const baseUrl = '';
     const token = this.token.getToken();
     const headers = new HttpHeaders().set('authorization', 'Bearer ' + token);
-    this.http.get(baseUrl + route,{headers, responseType: 'blob' as 'json'}).subscribe(
-        (response: any) =>{
+    this.http.get(baseUrl + route, { headers, responseType: 'blob' as 'json'}).subscribe(
+        (response: any) => {
             const dataType = response.type;
           const binaryData = [];
             binaryData.push(response);
@@ -108,10 +108,9 @@ export class UploadFileService {
             downloadLink.click();
         }
     );
-}
+  }
 
-
-getFilesByUserName(userName): Observable<any> {
-    return this.http.get('http://localhost:8080/api/file/' + userName + '/all');
+  getFilesByUserName(userName): Observable<any> {
+    return this.http.get('http://localhost:8080/api/file/' + userName);
   }
 }

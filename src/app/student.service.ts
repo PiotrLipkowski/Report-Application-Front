@@ -6,13 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class StudentService {
-
-
-
   constructor(private http: HttpClient) {}
 
     getStudentList(): Observable<any> {
-      return this.http.get('http://localhost:8080/api/test/allUsers');
+      return this.http.get('http://localhost:8080/api/users');
     }
-
 }

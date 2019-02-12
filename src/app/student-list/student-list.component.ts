@@ -10,7 +10,7 @@ import { Student } from '../student';
 })
 export class StudentListComponent implements OnInit {
 
-  student: Observable<Student[]>;
+  students: Observable<Student[]>;
 
   constructor(private studentService: StudentService) { }
 
@@ -19,7 +19,7 @@ export class StudentListComponent implements OnInit {
   }
 
   reloadData() {
-    this.student = this.studentService.getStudentList();
+    this.students = this.studentService.getStudentList();
   }
 
 }

@@ -7,19 +7,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  board: string;
-  errorMessage: string;
- 
   constructor(private userService: UserService) { }
  
-  ngOnInit() {
-    this.userService.getUserBoard().subscribe(
-      data => {
-        this.board = data;
-      },
-      error => {
-        this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`;
-      }
-    );
-  }
+  ngOnInit() { }
 }

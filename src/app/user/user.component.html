@@ -1,8 +1,34 @@
 <div class="container">
-  <app-form-upload></app-form-upload>
-
-  <br />
-  <br />
-
+  <div class="row" style="text-align: center;">
+    <h1>Moje sprawozdania</h1>
+    <p>Plik sprawozdania powinień być w formacie <strong>PDF</strong> <i>(Portable Document Format)</i> i powinien ważyć mniej niż <strong>5MB</strong>.</p>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="30px" style="padding-bottom: 15px;">
+    <div>
+    <h2 class="title">Co powinno zawierać sprawozdanie?</h2>
+      <ul>
+        <li>Imię i nazwisko</li>
+        <li>Numer indeksu</li>
+        <li>Kierunek i typ studiów</li>
+        <li>Nazwę przedmiotu</li>
+        <li>Imię i nazwisko prowadzącego</li>
+        <li>Datę wykonania laboratorium/ćwiczenia</li>
+        <li>Numer laboratorium/ćwiczenia</li>
+        <li>Przebieg laboratorium/ćwiczenia</li>
+        <li>Wnioski</li>
+      </ul>
+    </div>
+    <div>
+    <h2 class="title">Co podlega oceniane w sprawozdaniu?</h2>
+    <ul>
+      <li>Prawidłowo wypełniona ramka</li>
+      <li>Opis przebiegu laboratorium/ćwiczenia</li>
+      <li>Wnioski z laboratorium/ćwiczenia</li>
+    </ul>
+    </div>
+  </div>
+  <div class="row" style="text-align: center; padding-bottom: 15px;">
+    <app-form-upload></app-form-upload>
+  </div>
   <app-list-single-upload></app-list-single-upload>
 </div>

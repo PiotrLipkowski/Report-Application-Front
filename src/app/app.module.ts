@@ -27,7 +27,8 @@ import { MatToolbarModule,  MatTabsModule,
   MatFormFieldModule, MatInputModule,
   MatCardModule, MatStepperModule,
   MatSelectModule, MatProgressBarModule,
-  MatDialogModule } from '@angular/material';
+  MatDialogModule, MatChipsModule,
+  MatSnackBarModule, MatExpansionModule } from '@angular/material';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { ListSingleUploadComponent } from './upload/list-single-upload/list-single-upload.component';
@@ -72,6 +73,9 @@ import { ListSingleUploadComponent } from './upload/list-single-upload/list-sing
     MatSelectModule,
     MatProgressBarModule,
     MatDialogModule,
+    MatChipsModule,
+    MatSnackBarModule,
+    MatExpansionModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],

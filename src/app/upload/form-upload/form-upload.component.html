@@ -3,7 +3,7 @@
 </label>
 <button mat-flat-button color="primary" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
 
-<div *ngIf="currentFileUpload" class="progress">
+<div *ngIf="currentFileUpload && progress.percentage < 100" class="progress">
   <mat-progress-bar mode="determinate" value="{{progress.percentage}}" color="accent"></mat-progress-bar>
   <p>Status wysyłania: {{progress.percentage}}%</p>
 </div>

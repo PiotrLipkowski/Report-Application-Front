@@ -6,7 +6,6 @@
 </div>
 
 <mat-list *ngIf='showFilesByUserNameBoolean'>
-  <h3 mat-subheader>Moje pliki</h3>
   <mat-list-item *ngFor="let file of fileUploadsByUserName | async">
     <mat-icon mat-list-icon>insert_drive_file</mat-icon>
     <h4 mat-line>{{file.name}}</h4>

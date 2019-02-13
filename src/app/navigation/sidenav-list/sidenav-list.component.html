@@ -2,16 +2,16 @@
     <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
         <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
     </a>
-    <a mat-list-item *ngIf="authority === 'user'" routerLink="/user" (click)="onSidenavClose()">
-        <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Panel użytkownika</span>
+    <a mat-list-item routerLink="/user" *ngIf="authority === 'user'" (click)="onSidenavClose()">
+        <span>Widok użytkownika</span>
     </a>
-    <a mat-list-item *ngIf="authority === 'admin'" routerLink="/admin" (click)="onSidenavClose()">
-        <mat-icon>account_balance</mat-icon><span class="nav-caption">Panel administratora</span>
+    <a mat-list-item routerLink="pm" *ngIf="authority === 'pm'" (click)="onSidenavClose()">
+        <span>Widok PM</span>
     </a>
-    <a mat-list-item *ngIf="authority === 'pm'" routerLink="/pm" (click)="onSidenavClose()">
-        <mat-icon>account_balance</mat-icon><span class="nav-caption">Panel PM</span>
+    <a mat-list-item routerLink="/admin/student" *ngIf="authority === 'admin'" (click)="onSidenavClose()">
+        <span>Lista studentów</span>
     </a>
-    <a mat-list-item *ngIf="!authority" routerLink="/auth/login" (click)="onSidenavClose()">
-        <mat-icon>account_balance</mat-icon><span class="nav-caption">Zaloguj się</span>
+    <a mat-list-item  routerLink="/auth/login" *ngIf="!authority" (click)="onSidenavClose()">
+        <span>Login</span>
     </a>
   </mat-nav-list>

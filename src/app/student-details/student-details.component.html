@@ -1,17 +1,30 @@
-<div *ngIf="student">
-  <div>
-    <label>Imię: </label> {{student.name}}
-  </div>
-  <div>
-    <label>Nazwisko: </label> {{student.surname}}
-  </div>
-  <div>
-    <label>Numer indeksu: </label> {{student.indeks}}
-  </div>
-  <div>
-    <label>Numer grupy: </label> {{student.grupa}}
-  </div>
-
-
-  <hr/>
-</div>
+<mat-accordion *ngIf="student">
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header  (click)="showFilesByUserName(panelOpenState, student.username)">
+      <mat-panel-title>
+        #{{student.grupa}} - <strong>{{student.indeks}} </strong> - {{student.name}} {{student.surname}}
+      </mat-panel-title>
+      <mat-panel-description>
+        Kliknij, aby {{panelOpenState ? 'zamknąć' : 'rozwinąć'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!-- Hidden -->
+    <mat-list *ngIf='showFilesByUserNameBoolean'>
+      <mat-list-item *ngFor="let file of fileUploadsByUserName | async">
+        <mat-icon mat-list-icon>insert_drive_file</mat-icon>
+        <h4 mat-line>{{file.name}}</h4>
+        <p mat-line>Komentarz: {{file.comment}}</p>
+        <p mat-line>Ocena: {{file.grade}}</p>
+        <!--<button mat-flat-button color="accent" (click)="getMyFile('http://localhost:8080/api/file/'+ file.id, file.name)">Pobierz</button>-->
+        <button mat-mini-fab style="margin-right: 10px;">
+          <mat-icon  matTooltip="Pobierz" aria-label="Edit button" (click)="getMyFile('http://localhost:8080/api/file/'+ file.id, file.name)">cloud_download</mat-icon>
+        </button>
+        <button mat-mini-fab>
+          <mat-icon  matTooltip="Edytuj" aria-label="Edit button" (click)="openDialog(file.id)">edit</mat-icon>
+        </button>
+        <mat-divider [inset]="true"></mat-divider>
+      </mat-list-item>
+    </mat-list>
+    <!-- .Hidden-->
+  </mat-expansion-panel>
+</mat-accordion>

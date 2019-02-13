@@ -16,10 +16,7 @@
         <a class="nav-link" routerLink="pm">Widok PM</a>
       </li>
       <li *ngIf="authority === 'admin'" class="nav-item">
-        <a class="nav-link" routerLink="/admin/student">Lista sprawozdań studentów</a>
-      </li>
-      <li *ngIf="authority === 'admin'" class="nav-item">
-        <a class="nav-link" routerLink="/admin">Lista sprawozdań</a>
+        <a class="nav-link" routerLink="/admin/student">Lista studentów</a>
       </li>
       <li *ngIf="!authority" class="nav-item">
         <a class="nav-link" routerLink="/auth/login">Login</a>

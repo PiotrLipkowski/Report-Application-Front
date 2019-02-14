@@ -1,5 +1,5 @@
 <mat-accordion *ngIf="student">
-  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+  <mat-expansion-panel *ngIf="student.indeks >= 100000 && student.indeks <= 999999" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header  (click)="showFilesByUserName(panelOpenState, student.username)">
       <mat-panel-title>
         #{{student.grupa}} - <strong>{{student.indeks}} </strong> - {{student.name}} {{student.surname}}

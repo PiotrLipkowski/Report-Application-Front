@@ -61,7 +61,7 @@ export class UploadFileService implements OnInit {
   getFileGrade(fileId: number) {
     return this.http.get('http://localhost:8080/api/file/grade/' + fileId, { responseType: 'text' }).subscribe(
       data => {
-        console.log('Data: ', data);
+        console.log('Data grade: ', data);
       },
       error => {
         console.log('Error: ', error);
@@ -73,7 +73,7 @@ export class UploadFileService implements OnInit {
   getFileComment(fileId: number) {
     return this.http.get('http://localhost:8080/api/file/comment/' + fileId, { responseType: 'text' }).subscribe(
       data => {
-        console.log('Data: ', data);
+        console.log('Data comment: ', data);
       },
       error => {
         console.log('Error: ', error);

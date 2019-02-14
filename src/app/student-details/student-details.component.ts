@@ -1,5 +1,4 @@
-import { Injectable, Component, OnInit, Input,
-Inject } from '@angular/core';
+import { Injectable, Component, OnInit, Input, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StudentService } from '../student.service';
 import { Student } from '../student';
@@ -42,8 +41,8 @@ export class StudentDetailsComponent implements OnInit {
 
   openDialog(fileId: number): void {
     const dialogRef = this.dialog.open(CommentDialogComponent, {
-      width: '250px',
-      height: '300px',
+      width: '400px',
+      height: '350px',
       data: {fileId : fileId, currentGrade: this.getFileGrade(fileId), currentComment: this.getFileComment(fileId)},
       disableClose: true,
       autoFocus: true,

@@ -1,5 +1,6 @@
 <h2 mat-dialog-title>Zmień dane</h2>
 <div mat-dialog-content>
+  <p class="caoption">Aktualny plik: {{data.fileId}}</p>
   <p class="caption">Aktualna ocena: {{data.currentGrade}}</p>
   <p class="caption">Aktualny komentarz: {{data.currentComment}}</p>
   <mat-form-field>
@@ -14,11 +15,11 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field>
-    <input placeholder="Komentarz" name="comment"  matInput [(ngModel)]="data.comment">
+    <textarea  matInput placeholder="Komentarz" name="comment"  [(ngModel)]="data.comment"></textarea>
   </mat-form-field>
 </div>
 
 <div mat-dialog-actions>
-  <button mat-button type="button" (click)="onNoClick()">Zamknij</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Zapisz</button>
+  <button mat-raised-button color="primary" type="button" (click)="onNoClick()">Zamknij</button>
+  <button mat-raised-button color="accent" [mat-dialog-close]="data" cdkFocusInitial>Zapisz</button>
 </div>

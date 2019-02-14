@@ -48,4 +48,7 @@ export class ListSingleUploadComponent implements OnInit {
   getMyFile(fileUrl, fileName){
     this.uploadFileService.downloadFile(fileUrl, fileName);
   }
+
+
+
 }

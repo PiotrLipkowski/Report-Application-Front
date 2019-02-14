@@ -85,7 +85,7 @@ export class UploadFileService implements OnInit {
 
   // pobiera z rest wszystkie pliki
   getFiles(): Observable<any> {
-    return this.http.get('http://localhost:8080/api/file');
+    return this.http.get('http://localhost:8080/api/file/');
   }
 
   // tworzy plik blob z dorzuceniem tokena w naglowku

@@ -1,5 +1,5 @@
 <div class="buttons">
-  <mat-slide-toggle  ngDefaultControl (change)="showFilesByUserName(!showFilesByUserNameBoolean)" >Pokaż moje pliki</mat-slide-toggle>
+  <mat-slide-toggle ngDefaultControl (change)="showFilesByUserName(!showFilesByUserNameBoolean)">Pokaż moje pliki</mat-slide-toggle>
 </div>
 
 <mat-list *ngIf='showFilesByUserNameBoolean'>
@@ -9,7 +9,7 @@
     <p mat-line>#ID: {{file.id}}</p>
     <p mat-line>Ocena: {{file.grade}}</p>
     <p mat-line>Komentarz: {{file.comment}}</p>
-    <button mat-flat-button color="accent" (click)="getMyFile('http://localhost:8080/api/file/'+ file.id, file.name)">Pobierz</button>
+    <button mat-flat-button color="accent" (click)="getMyFile('http://localhost:8080/api/file/download/'+ file.id, file.name)">Pobierz</button>
   </mat-list-item>
   <mat-divider></mat-divider>
 </mat-list>

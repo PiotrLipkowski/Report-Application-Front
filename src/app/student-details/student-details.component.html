@@ -17,7 +17,7 @@
         <p mat-line>Ocena: {{file.grade}}</p>
         <!--<button mat-flat-button color="accent" (click)="getMyFile('http://localhost:8080/api/file/'+ file.id, file.name)">Pobierz</button>-->
         <button mat-mini-fab style="margin-right: 10px;">
-          <mat-icon  matTooltip="Pobierz" aria-label="Edit button" (click)="getMyFile('http://localhost:8080/api/file/'+ file.id, file.name)">cloud_download</mat-icon>
+          <mat-icon  matTooltip="Pobierz" aria-label="Edit button" (click)="getMyFile('http://localhost:8080/api/file/download/'+ file.id, file.name)">cloud_download</mat-icon>
         </button>
         <button mat-mini-fab>
           <mat-icon  matTooltip="Edytuj" aria-label="Edit button" (click)="openDialog(file.id)">edit</mat-icon>

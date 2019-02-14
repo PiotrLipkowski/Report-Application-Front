@@ -28,7 +28,7 @@ import { MatToolbarModule,  MatTabsModule,
   MatSelectModule, MatProgressBarModule,
   MatDialogModule, MatChipsModule,
   MatSnackBarModule, MatExpansionModule,
-  MatTooltipModule } from '@angular/material';
+  MatTooltipModule, MatSlideToggleModule } from '@angular/material';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { ListSingleUploadComponent } from './upload/list-single-upload/list-single-upload.component';
@@ -77,6 +77,7 @@ import { ListSingleUploadComponent } from './upload/list-single-upload/list-sing
     MatSnackBarModule,
     MatExpansionModule,
     MatTooltipModule,
+    MatSlideToggleModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],

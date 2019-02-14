@@ -1,8 +1,5 @@
 <div class="buttons">
-  <button mat-flat-button color="accent" *ngIf='showFilesByUserNameBoolean' (click)='showFilesByUserName(false)'>Ukryj
-  pliki</button>
-  <button mat-flat-button color="accent" *ngIf='!showFilesByUserNameBoolean' (click)='showFilesByUserName(true)'>Pokaż
-  pliki</button>
+  <mat-slide-toggle  ngDefaultControl (change)="showFilesByUserName(!showFilesByUserNameBoolean)" >Pokaż moje pliki</mat-slide-toggle>
 </div>
 
 <mat-list *ngIf='showFilesByUserNameBoolean'>

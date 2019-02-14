@@ -42,7 +42,7 @@ export class StudentDetailsComponent implements OnInit {
   openDialog(fileId: number): void {
     const dialogRef = this.dialog.open(CommentDialogComponent, {
       width: '400px',
-      height: '350px',
+      height: '370px',
       data: {fileId : fileId, currentGrade: this.getFileGrade(fileId), currentComment: this.getFileComment(fileId)},
       disableClose: true,
       autoFocus: true,

@@ -32,6 +32,12 @@ export class SidenavListComponent implements OnInit {
     }
   }
 
+  logout() {
+    this.sidenavClose.emit();
+    this.tokenStorage.signOut();
+    window.location.reload();
+  }
+
   public onSidenavClose = () => {
     this.sidenavClose.emit();
   }

@@ -1,17 +1,8 @@
 <mat-nav-list>
-    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
-        <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
-    </a>
-    <a mat-list-item routerLink="/user" *ngIf="authority === 'user'" (click)="onSidenavClose()">
-        <span>Widok użytkownika</span>
-    </a>
-    <a mat-list-item routerLink="pm" *ngIf="authority === 'pm'" (click)="onSidenavClose()">
-        <span>Widok PM</span>
-    </a>
-    <a mat-list-item routerLink="/admin/student" *ngIf="authority === 'admin'" (click)="onSidenavClose()">
-        <span>Lista studentów</span>
-    </a>
     <a mat-list-item  routerLink="/auth/login" *ngIf="!authority" (click)="onSidenavClose()">
         <span>Login</span>
     </a>
+  <a mat-list-item  routerLink="/auth/login" *ngIf="authority" (click)="logout()">
+    <span>Wyloguj</span>
+  </a>
   </mat-nav-list>

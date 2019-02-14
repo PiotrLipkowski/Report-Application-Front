@@ -56,4 +56,12 @@ export class TokenStorageService {
       return false;
     }
   }
+
+  public hasUserRole(): boolean {
+    if (this.getAuthorities().includes('ROLE_USER')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

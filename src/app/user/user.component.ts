@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
+import {TokenStorageService} from '../auth/token-storage.service';
  
 @Component({
   selector: 'app-user',
@@ -7,7 +8,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  constructor() { }
+  constructor(private token: TokenStorageService) { }
  
   ngOnInit() { }
 }

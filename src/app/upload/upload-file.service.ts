@@ -46,7 +46,7 @@ export class UploadFileService implements OnInit {
   }
 
   // Update file grade
-  updateFileGrade(fileId: number, grade: number) {
+  updateFileGrade(fileId: number, grade: string) {
     return this.http.put('http://localhost:8080/api/file/updateGrade/' + fileId + '/' + grade, {}, { responseType: 'text'}).subscribe(
       data => {
         console.log('PUT zrealizowany ' , data);

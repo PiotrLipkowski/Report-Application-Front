@@ -9,9 +9,7 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 
 export interface DialogData {
   comment: string;
-  grade: number;
-  currentComment: string;
-  currentGrade: number;
+  grade: string;
 }
 
 @Injectable({
@@ -43,17 +41,19 @@ export class StudentDetailsComponent implements OnInit {
     const dialogRef = this.dialog.open(CommentDialogComponent, {
       width: '400px',
       height: '370px',
-      data: {fileId : fileId, currentGrade: this.getFileGrade(fileId), currentComment: this.getFileComment(fileId)},
+      data: {fileId : fileId},
       disableClose: true,
       autoFocus: true,
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
-        if (result.comment !== undefined) {
+        if (result.grade !== undefined && result.comment === undefined) {
+          this.updateFileGrade(fileId, result.grade);
+        } else if (result.comment !== undefined && result.grade === undefined) {
           this.updateFileComment(fileId, result.comment);
-        }
-        if (result.grade !== undefined) {
+        } else if (result.comment !== undefined && result.grade !== undefined) {
+          this.updateFileComment(fileId, result.comment);
           this.updateFileGrade(fileId, result.grade);
         }
       }
@@ -75,7 +75,7 @@ export class StudentDetailsComponent implements OnInit {
     this.uploadFileService.updateFileComment(fileId, comment);
   }
 
-  updateFileGrade(fileId: number, grade: number) {
+  updateFileGrade(fileId: number, grade: string) {
     this.uploadFileService.updateFileGrade(fileId, grade);
   }
 

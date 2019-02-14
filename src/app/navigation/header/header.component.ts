@@ -36,4 +36,9 @@ export class HeaderComponent implements OnInit {
     this.sidenavToggle.emit();
   }
 
+  logout() {
+    this.tokenStorage.signOut();
+    window.location.reload();
+  }
+
 }

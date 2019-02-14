@@ -18,7 +18,6 @@ import { FormUploadComponent } from './upload/form-upload/form-upload.component'
 import { CommentDialogComponent, StudentDetailsComponent} from './student-details/student-details.component';
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
 import { StudentListComponent } from './student-list/student-list.component';
-import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule,  MatTabsModule,
   MatSidenavModule,  MatIconModule,
@@ -43,7 +42,6 @@ import { ListSingleUploadComponent } from './upload/list-single-upload/list-sing
     AdminComponent,
     PmComponent,
     FormUploadComponent,
-    ListUploadComponent,
     DetailsUploadComponent,
     HeaderComponent,
     SidenavListComponent,

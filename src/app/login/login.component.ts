@@ -4,6 +4,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { AuthService } from '../auth/auth.service';
 import { TokenStorageService } from '../auth/token-storage.service';
 import { AuthLoginInfo } from '../auth/login-info';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   private loginInfo: AuthLoginInfo;
 
-  constructor(private _formBuilder: FormBuilder, private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private _formBuilder: FormBuilder, private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
 
   ngOnInit() {
     this.formGroup = this._formBuilder.group({
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formGroup.value.userNameFormCtrl, this.formGroup.value.passwordFormCtrl);
+    // console.log(this.formGroup.value.userNameFormCtrl, this.formGroup.value.passwordFormCtrl);
 
     this.loginInfo = new AuthLoginInfo(
       this.formGroup.value.userNameFormCtrl,
@@ -65,5 +66,6 @@ export class LoginComponent implements OnInit {
 
   reloadPage() {
     window.location.reload();
+    this.router.navigate(['/home']);
   }
 }
